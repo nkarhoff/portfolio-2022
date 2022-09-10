@@ -1,0 +1,181 @@
+$body-font: 'Open Sans', sans-serif;
+$header-font: 'DM Serif Display', serif;
+$body-color: black;
+$brand-primary: #3D294C;
+$brand-secondary: #B8A7C9;
+$brand-third: #F3B983;
+$light-grey: #EEEEEE;
+$dark-grey: #212121;
+
+@mixin container
+{
+  max-width: 1100px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@mixin flex-display
+{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin padding-standard
+{
+  padding-top: 120px;
+  padding-bottom: 120px;
+  @media (max-width: 860px)
+  {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @media (max-width: 650px)
+  {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+}
+
+@mixin padding-standard-bottom-only
+{
+  padding-bottom: 120px;
+  @media (max-width: 860px)
+  {
+    padding-bottom: 60px;
+  }
+  @media (max-width: 650px)
+  {
+    padding-bottom: 45px;
+  }
+}
+
+@mixin padding-standard-top-only
+{
+  padding-top: 120px;
+  @media (max-width: 860px)
+  {
+    padding-top: 60px;
+  }
+  @media (max-width: 650px)
+  {
+    padding-top: 45px;
+  }
+}
+
+@mixin margin-standard-top-only
+{
+  margin-top: 100px;
+  @media (max-width: 650px)
+  {
+    margin-top: 45px;
+  }
+}
+
+@mixin margin-large-top-only
+{
+  margin-top: 75px;
+  @media (max-width: 650px)
+  {
+    padding-top: 55px;
+  }
+}
+
+@mixin margin-standard-headline-bottom
+{
+  margin-bottom: 60px;
+  @media (max-width: 650px)
+  {
+    margin-bottom: 45px;
+  }
+}
+
+@mixin button($color, $bgcolor)
+{
+  background-color: transparent;
+  color: $color;
+  border: 2px solid $color;
+  font-weight: bold;
+  padding: 10px 20px;
+  // border-radius: 20px;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  @media (max-width: 650px) {
+    padding: 6px 12px;
+  }
+  &:hover, &:focus {
+    box-shadow: inset 0 -3.25em 0 0 $color;
+    color: $bgcolor;
+    transition-duration: 0.3s;
+  }
+}
+
+@mixin white-button
+{
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 15px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  &:hover {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.3s;
+  }
+  @media (max-width: 650px) {
+    padding: 15px 30px;
+  }
+}
+
+@mixin black-skinny-button
+{
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 5px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  &:hover {
+    background-color: $akb-blue;
+    text-decoration: none;
+    transition-duration: 0.3s;
+  }
+}
+
+@mixin white-skinny-button
+{
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 5px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  &:hover {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.3s;
+  }
+}
+
+@mixin blue-skinny-button
+{
+  background-color: $akb-blue;
+  color: white;
+  font-weight: bold;
+  padding: 5px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  &:hover {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.3s;
+  }
+}

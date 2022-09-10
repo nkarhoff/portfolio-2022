@@ -1,0 +1,124 @@
+$body-font: 'Open Sans', sans-serif;
+$header-font: 'DM Serif Display', serif;
+$subhead-font: 'Open Sans', sans-serif;
+$dark-purple: #3D294C;
+$medium-purple: #9285A0;
+$light-purple: #B8A7C9;
+$mustard: #F3B983;
+$body-color: black;
+$brand-primary: #BF6969;
+$brand-secondary: #8C4242;
+$brand-third: #F25A38;
+$light-grey: #EEEEEE;
+$dark-grey: #212121;
+
+@mixin container
+{
+  max-width: 1100px;
+  padding: 0 50px;
+  margin: 0 auto;
+  @media (max-width: 1040px)
+  {
+    padding: 0 15px;
+  }
+}
+
+@mixin flex-display
+{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin padding-standard
+{
+  padding-top: 95px;
+  padding-bottom: 95px;
+  @media (max-width: 860px)
+  {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @media (max-width: 650px)
+  {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+}
+
+@mixin padding-standard-bottom-only
+{
+  padding-bottom: 100px;
+  @media (max-width: 860px)
+  {
+    padding-bottom: 60px;
+  }
+  @media (max-width: 650px)
+  {
+    padding-bottom: 45px;
+  }
+}
+
+@mixin padding-standard-top-only
+{
+  padding-top: 100px;
+  @media (max-width: 860px)
+  {
+    padding-top: 60px;
+  }
+  @media (max-width: 650px)
+  {
+    padding-top: 45px;
+  }
+}
+
+@mixin margin-standard
+{
+  margin-top: 95px;
+  margin-bottom: 95px;
+  @media (max-width: 860px)
+  {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 650px)
+  {
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+}
+
+@mixin margin-standard-bottom-only
+{
+  margin-bottom: 95px;
+  @media (max-width: 860px)
+  {
+    margin-bottom: 60px;
+  }
+  @media (max-width: 650px)
+  {
+    margin-bottom: 45px;
+  }
+}
+
+@mixin orange-button
+{
+  background-color: transparent;
+  color: $brand-secondary;
+  font-family: $subhead-font;
+  font-size: 18px;
+  padding: 4px 20px;
+  display: inline-block;
+  border: 2px solid $brand-secondary;
+  transition-duration: 0.3s;
+  border-radius: 30px;
+  &:hover {
+    transition-duration: 0.3s;
+    background-color: $brand-secondary;
+    color: white;
+  }
+  @media (max-width: 860px)
+  {
+    font-size: 18px;
+  }
+}

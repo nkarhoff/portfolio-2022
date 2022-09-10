@@ -1,0 +1,63 @@
+footer {
+	background-color: $brand-primary;
+	#block-webform {
+		@include padding-standard;
+		#edit-processed-text {
+			color: white;
+			text-align: center;
+			h2 {
+				color: white;
+				&::after {
+					background-color: white;
+				}
+			}
+		}
+		#edit-outer-wrapper {
+			border: none;
+			margin: 0;
+			padding: 0;
+			padding-bottom: 20px; 
+			> .fieldset-wrapper {
+				@include flex-display;
+				justify-content: space-between;
+				#edit-wrapper {
+					border: none;
+					margin: 0;
+					padding: 0; 
+					
+					width: 49%;
+					.fieldset-wrapper {
+						
+						
+						.js-form-item {
+							margin-bottom: 20px;
+							input {
+								width: 100%;
+								box-sizing: border-box;
+								border: none;
+								padding: 10px 20px;
+								// border-radius: 20px;
+							}
+						}
+					}
+				}
+				.js-form-type-textarea {
+					width: 49%;
+					textarea {
+						width: 100%;
+						box-sizing: border-box;
+						border: none;
+						padding: 10px 20px;
+						// border-radius: 20px;
+						height: 172px;
+					}	
+				}
+			}
+		}
+		.form-actions {
+			input {
+				@include button(white, $brand-primary);
+			}
+		}
+	}
+}

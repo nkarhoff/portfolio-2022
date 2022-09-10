@@ -1,0 +1,124 @@
+.node--type-project {
+	header {
+		@include padding-standard-bottom-only;
+	}
+	.region-header {
+		background-color: $brand-primary;
+
+		#block-practice-page-title {
+			.block-main-container {
+				@include container;
+				color: white;
+				text-align: center;
+				h1, h3 {
+					margin: 0;
+					color: white;
+				}
+			}
+		}
+	}
+	.region-precontent, .region-content {
+		.body {
+			@include container;
+			@include padding-standard-bottom-only;
+		}
+		.field_project_asset {
+			&:nth-child(even) {
+				background-color: $light-grey;
+				.paragraph--type--project-asset {
+					.par-project_asset {
+						flex-direction: row;
+						.field_right_image {
+							padding-right: 0px;
+							padding-left: 40px;
+							width: 35%;
+						}
+					}
+				}
+			}
+			.paragraph--type--project-asset {
+				@include container;
+				@include padding-standard;
+				.par-project_asset {
+					@include flex-display;
+					align-items: center;
+					flex-direction: row-reverse;
+					.field_right_image {
+						padding-left: 0px;
+						padding-right: 40px;
+						width: 35%;
+						img {
+							width: 100%;
+						}
+					}
+					.wrapper {
+						flex: 1;
+						p {
+							&:last-child {
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+		.views-field-field-category {
+			text-transform: uppercase;
+			color: $brand-third;
+			font-size: 20px;
+			font-weight: 800;
+		}
+		h2 {
+			&::after {
+				content: "";
+				height: 4px;
+				position: absolute;
+				bottom: -20px;
+				background-color: $dark-grey;
+				width: 60px;
+				left: 0;
+				border-radius: 4px;
+				margin: 0;
+			}
+		}
+	}
+	.blue-section {	
+		.region-testimonials {
+			#block-views-block-testimonials-block-1 {
+				color: white;
+				background-color: $brand-secondary; 
+				.block-main-container {
+					@include container;
+				}
+				text-align: center;
+				.view-testimonials {
+					.views-row {
+						@include padding-standard;
+					}
+					.field_quote {
+						font-size: 32px;
+						font-family: $header-font;
+					}
+					.field_client {
+						margin-top: 50px;
+						position: relative;
+						text-transform: uppercase;
+						font-weight: 700;
+						&::before {
+							content: "";
+							height: 4px;
+							position: absolute;
+							top: -30px;
+							background-color: white;
+							width: 60px;
+							margin: 0 auto;
+							left: 0;
+							right: 0;
+							border-radius: 4px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

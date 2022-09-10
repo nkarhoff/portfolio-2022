@@ -1,0 +1,115 @@
+.path-frontpage {
+    header {
+        background-color: white;
+    }
+    #block-homepageheader {
+        @include container;
+        min-height: calc(100vh - 56px);
+        position: relative;
+        .block-wrapper {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            .body {
+                h3 {
+                    &.subhead {
+                    font-family: $subhead-font;
+                    color: $mustard;
+                    }  
+                }
+                h1 {
+                    color: $dark-grey;
+                    margin: 0;
+                }
+                p {
+                    color: $dark-grey;
+                    max-width: 500px;
+                    a {
+                        color: $mustard;
+                    }
+                }
+            }
+        }
+    }
+    #block-views-block-skills-block-1 {
+		text-align: center;
+		margin: 0 auto;
+		background-color: $brand-secondary;
+		
+		.block-main-container {
+			// @include container;
+			// max-width: 800px;
+			
+			header {
+				color: white;
+				h2 {
+					color: white;
+					&:after {
+						background-color: white;
+					}
+				}
+			}
+		}
+		.view-skills {
+			.views-row {
+				background-color: white;
+				color: $brand-secondary;
+				text-transform: uppercase;
+				border-radius: 20px;
+				margin: 0px 5px 10px 5px;
+				padding: 5px 20px;
+				font-weight: 800;
+				font-size: 16px;
+                font-family: $subhead-font;
+			}
+			> span {
+				// float:left;
+  				width:50%;
+			}
+		}
+		
+		.marquee-container {
+			overflow: hidden;
+			.marquee-block {
+			  --total-marquee-items:15;
+			  width: calc(151px * (var(--total-marquee-items)));
+			  box-sizing: border-box;
+			  position: relative;
+			  margin: 10px auto;
+			  height: 36px;
+			}
+			.view-skills {
+			  animation: marqueeLeft 15s linear infinite;
+			  display: block;
+			  width: 200%;
+			  position: absolute;
+			}
+			.views-row{
+			  height: auto;
+			  display: inline-block;
+			  margin: 0 10px;
+			  float: left;
+			  transition: all .2s ease-out;
+			}
+			
+		}
+		
+	}
+    #block-about {
+        @include container;
+        .block-wrapper {
+            @include padding-standard;
+        }
+        .body {
+            @include flex-display;
+            align-items: center;
+            .left {
+                flex: 1;
+                padding-right: 50px;
+            }
+            .right {
+                max-widtH: 350px;
+            }
+        }
+    }
+}

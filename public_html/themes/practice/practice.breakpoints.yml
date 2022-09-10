@@ -1,0 +1,18 @@
+practice.mobile:
+  label: mobile
+  mediaQuery: 'all and (min-width: 0px)'
+  weight: 0
+  multipliers:
+   - 1x
+practice.tablet:
+  label: narrow
+  mediaQuery: 'all and (min-width: 500px) and (max-width: 880px)'
+  weight: 1
+  multipliers:
+    - 1x
+practice.desktop:
+  label: wide
+  mediaQuery: 'all and (min-width: 880px)'
+  weight: 2
+  multipliers:
+    - 1x

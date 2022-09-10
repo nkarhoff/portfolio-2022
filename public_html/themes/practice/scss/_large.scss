@@ -1,0 +1,17 @@
+@media (max-width: 1080px) { 
+    footer {
+        #block-webform {
+            #edit-outer-wrapper {
+                > .fieldset-wrapper {
+                    flex-wrap: wrap;
+                    #edit-wrapper {
+                        width: 100%;
+                    }
+                    .js-form-type-textarea {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

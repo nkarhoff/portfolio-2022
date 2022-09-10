@@ -1,0 +1,81 @@
+.main-nav {
+	background-color: white;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	&.mobile { 
+		display: none;
+		// position: relative; 
+	}
+	.nav-wrapper {
+		@include flex-display;
+		align-items: center;
+		padding: 20px 40px;
+		.logo {
+			width: 40px;
+		}
+		.region-nav {
+			flex: 1;
+		    #block-practice-main-menu {
+		    	ul {
+		    		padding-left: 0;
+		    		text-align: right;
+					margin: 0;
+		    		li {
+		    			display: inline-block;
+		    			margin-right: 20px;
+		    			font-size: 14px;
+		    			&:last-child {
+		    				margin-right: 0;
+							a {
+								@include button($brand-third, white);
+							}
+		    			}
+		    			a {
+		    				color: $brand-primary;
+		    				font-weight: 600;
+		    				text-transform: uppercase;
+							&:hover {
+								color: $brand-third;
+							}
+		    			}
+		    		}
+		    	}
+		    }
+		}
+	}
+}
+.region-header {
+	background-color: $brand-primary;
+	height: 500px;
+	position: relative;
+	#block-practice-page-title {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+		padding-top: 63px;
+		.block-main-container {
+			@include container;
+			color: $dark-grey;
+			text-align: center;
+			h1, h3 {
+				margin: 0;
+				color: $dark-grey;
+			}
+			h1 {
+				opacity: 0;
+				transition-duration: .5s;
+				position: relative;
+				top: 30px;
+				color: white;
+				&.active {
+					opacity: 1;
+					transition-duration: .5s;
+					top: 0px;
+				}
+			}
+		}
+	}
+}

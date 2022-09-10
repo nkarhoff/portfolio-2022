@@ -1,0 +1,19 @@
+name: Nicole Portfolio 2022
+type: theme
+base theme: stable
+description: 'A custom theme for my 2022 Portfolio Site.'
+package: Custom
+core_version_requirement: ^8 || ^9
+libraries: 
+  - portfolio2022/global-styling
+
+regions:
+  nav: Main Nav
+  stripe: Stripe
+  header: Header
+  front: Front
+  precontent: Precontent
+  content: Content
+  prefooter: Prefooter
+  footer: Footer
+  disabled: Disabled

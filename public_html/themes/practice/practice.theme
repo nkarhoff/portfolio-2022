@@ -1,0 +1,109 @@
+<?php 
+
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
+use Drupal\devel_debug_log;
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function practice_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__' . $node->bundle();
+  }
+}
+
+function practice_preprocess_html(&$variables) 
+{
+  // Adding customized node and 'front' classes to pages
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    $variables['attributes']['class'][] = 'page-node-' . $node->id();
+    $variables['attributes']['class'][] = 'node--type-'.$variables['node_type'];
+    $variables['content']['#include_fallback'] = FALSE;
+    if ($node->hasField('field_open_graph'))
+    {
+      if (!empty($node->get('field_open_graph')->getValue()))
+      {
+        $image = $node->get('field_open_graph')->getValue()[0]['target_id'];
+        $file = File::load($image);
+        $variables['open_graph'] = file_create_url($file->getFileUri());
+      }
+      else
+      {
+        $variables['open_graph'] = 'https://nicolekarhoff.com/sites/default/files/NicoleKarhoff_opengraph.png';
+      }
+    }
+    else
+    {
+      $variables['open_graph'] = 'https://nicolekarhoff.com/sites/default/files/NicoleKarhoff_opengraph.png';
+    }
+  }
+  else
+  {
+    $variables['open_graph'] = 'https://nicolekarhoff.com/sites/default/files/NicoleKarhoff_opengraph.png';
+  }
+
+  $path_class = !$variables['root_path'] ? 'path-frontpage' : 'path-' . Html::getClass($variables['root_path']);
+  if (isset($path_class)) {
+    $variables['attributes']['class'][] = $path_class;
+  }
+
+}
+
+
+function practice_preprocess_page(&$variables)
+{
+  $nodeExists = array_key_exists('node', $variables);
+
+  // If the page contains a node
+  if ($nodeExists)
+  {
+    // If the node has the Header Image field
+    if ($variables['node']->hasField('field_hero_image'))
+    {
+      // If the hero image is not empty
+      if ($variables['node']->get('field_hero_image')->getValue() != '' && $variables['node']->get('field_hero_image')->getValue() != NULL)
+      {
+        // Get the URL of the hero image using the "Hero Image" image style
+        $hero_image = $variables['node']->get('field_hero_image')->getValue();
+        $hero_image_id = $hero_image[0]['target_id'];
+        $variables['image_width'] = $hero_image[0]['width'];
+        $variables['image_height'] = $hero_image[0]['height'];
+        $fileLoad = \Drupal\file\Entity\File::load($hero_image_id);
+        $hero_image_file = ImageStyle::load('hero_image')->buildUrl($fileLoad->getFileUri());
+        $hero_small_file = ImageStyle::load('small_hero')->buildUrl($fileLoad->getFileUri());
+        $variables['hero_image'] = file_url_transform_relative($hero_image_file);
+        $variables['small_hero'] = file_url_transform_relative($hero_small_file);
+      }
+      // If the hero image is empty, grab the default image
+      else
+      {
+        $hero_id = $variables['node']->get('field_hero_image')->getSetting('default_image');
+        $variables['image_width'] = $hero_id['width'];
+        $variables['image_height'] = $hero_id['height'];
+        $entityrepository = Drupal::service('entity.repository');
+        if ($hero_id)
+        {
+          $fileLoad = $entityrepository->loadEntityByUuid('file', $hero_id);
+          $hero_image_file = ImageStyle::load('hero_image')->buildUrl($fileLoad->getFileUri());
+          $hero_small_file = ImageStyle::load('small_hero')->buildUrl($fileLoad->getFileUri());
+          $variables['hero_image'] = file_url_transform_relative($hero_image_file);
+          $variables['small_hero'] = file_url_transform_relative($hero_small_file);
+        }
+      }
+    }
+    else
+    {
+      $variables['hero_image'] = '/sites/default/files/whitepapers_hero.png';
+    }
+  }
+}
+
+
+function practice_preprocess_region(&$variables)
+{
+  $variables['region_name'] = $variables['region'];
+}
+

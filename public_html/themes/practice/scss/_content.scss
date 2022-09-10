@@ -1,0 +1,178 @@
+body {
+	border-bottom: 20px solid $brand-third;
+}
+
+.node--type-page {
+	.region-precontent, .region-content {
+		@include padding-standard;
+		.body {
+			@include container;
+		}
+		h2 {
+			&::after {
+				content: "";
+				height: 4px;
+				position: absolute;
+				bottom: -20px;
+				background-color: $dark-grey;
+				width: 60px;
+				left: 0;
+				border-radius: 4px;
+				margin: 0;
+			}
+		}
+	}
+}
+// About Page
+.page-node-6, .page-node-7 {
+	#block-practice-content {
+		@include padding-standard;
+	}
+	.region-header {
+		background-color: $brand-primary;
+
+		#block-practice-page-title {
+			.block-main-container {
+				@include container;
+				color: white;
+				text-align: center;
+				h1, h3 {
+					margin: 0;
+					color: white;
+				}
+			}
+		}
+	}
+	.region-precontent, .region-content {
+		.body {
+			@include container;
+		}
+		h2 {
+			&::after {
+				content: "";
+				height: 4px;
+				position: absolute;
+				bottom: -20px;
+				background-color: $dark-grey;
+				width: 60px;
+				left: 0;
+				border-radius: 4px;
+				margin: 0;
+			}
+		}
+	}
+}
+
+#block-views-block-projects-block-2 {	
+	@include padding-standard;
+		.block-main-container {
+			@include container;
+			text-align: center;
+			h2 {
+				@include padding-standard-top-only;
+				color: white;
+				&:after {
+					background-color: white;
+				}
+			}
+			form {
+				padding-bottom: 20px;
+				.bef-checkboxes {
+					@include flex-display;
+					justify-content: center;
+					> div{
+						display: inline-block;
+						vertical-align: top;
+						margin-right: 20px;
+						// font-weight: bold;
+						&:last-child{
+							margin-right: 0px;
+						}
+					}
+					input[type=checkbox] {
+						display:none;
+					}
+			
+					input[type=checkbox] + label {
+						display:inline-block;
+						padding: 0 0 0 0px;
+						background:url("../img/box-uncheck.svg") no-repeat;
+						// background-size: 30px auto;
+						padding-left: 40px;
+					}
+			
+					input[type=checkbox]:checked + label {
+						background:url("../img/box-check.svg") no-repeat;
+						display:inline-block;
+						// background-size: 30px auto;
+						padding-left: 40px;
+					}
+				}
+			}
+			.view-projects {
+				
+				@include flex-display;
+				flex-wrap: wrap;
+				padding: 20px 0px;
+				.views-row {
+					width: 22%;
+					position: relative;
+					margin-right: 4%;
+					opacity: 0;
+					top: 30px;
+					transition-duration: 800ms;
+					&.active {
+						opacity: 1;
+						top: 0;
+						transition-duration: 800ms;
+					}
+					&:nth-child(4n+4) {
+						margin-right: 0;
+					}
+					.circle-info {
+						a {
+							width: 100%;
+							height: 100%;
+							position: absolute;
+							top: 0;
+							left: 0;
+							z-index: 3;
+						}
+						.overlay {
+
+							position: absolute;
+						    top: 0;
+						    left: 0;
+						    height: 100%;
+						    width: 100%;
+						    background-color: $brand-secondary;
+						    // border-radius: 50%;
+						    @include flex-display;
+						    align-items: center;
+						    display: none;
+						    p {
+								color: white;
+								width: 100%;
+								padding: 0px 20px;
+						    }
+						}
+					}
+					&:hover {
+						.circle-info {
+							.overlay {
+								@include flex-display;
+								
+							}
+						}
+					}
+				}
+			}
+			.more-link {
+				@include padding-standard-bottom-only;
+				padding-top: 20px;
+				a {
+					@include button(white, $brand-primary);
+				}
+			}
+		}
+	}	
